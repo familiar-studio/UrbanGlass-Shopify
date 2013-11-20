@@ -1,0 +1,25 @@
+{
+  "presets": {
+    "default": {
+      "twitter_link": "http://twitter.com/shopify",
+      "facebook_link": "http://facebook.com/shopify",
+      "keithTest": "this is a default",
+      "google_link": "",
+      "youtube_link": "",
+      "enable_product_image_zoom": false,
+      "display_quantity_dropdown": false,
+      "show_related_products": true,
+      "collection_tags": true,
+      "footer_display_newsletter": false,
+      "accept_visa": true,
+      "accept_mastercard": true,
+      "accept_amex": true,
+      "accept_cirrus": true,
+      "accept_delta": true,
+      "accept_discover": true,
+      "accept_westernunion": true,
+      "accept_paypal": true,
+      "accept_google": true
+    }
+  }
+}

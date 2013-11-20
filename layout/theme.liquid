@@ -1,0 +1,272 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+
+  <title>
+    {% if template == 'index' %}{% if page_title contains 'Welcome' %}{{ shop.name }} &ndash; Welcome{% else %}{{ page_title }}{% endif %}{% elsif template == '404' %}Page Not Found{% elsif page_title contains shop.name %}{{ page_title }}{% else %}{{ page_title }} &ndash; {{ shop.name }}{% endif %}
+  </title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description }}" />
+  {% endif %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="canonical" href="{{ canonical_url }}" /> 
+
+  {% include 'fb-open-graph-tags' %}
+
+  <link rel="stylesheet" type="text/css" href="http://www.urbanglass.org/css/styles.css" />
+  
+  {% if settings.header_font contains 'Google' %}
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
+  {% endif %}
+  {% if settings.base_font contains 'Google' %}
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.base_font | remove: 'Google+' }}:300,400,700">
+  {% endif %}
+  {{ 'html5shiv.js' | asset_url | script_tag }}
+
+  {{ content_for_header }}
+  
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' | script_tag }}
+ 
+  
+</head>
+
+<body>
+  
+  <header>
+
+    <div class="navbar navbar-static-top">
+
+      <div class="container">
+        <div class="container-wrapper">
+
+        
+
+      
+
+        <form>
+        <fieldset  class="navbar-form pull-right">
+          <input type="search" class="form-control" style="width: 200px;" name="keywords" id="keywords">
+          <button type="submit" class="btn" value="">Search</button>
+        </fieldset>
+
+        </form>
+        <ul class="nav navbar-nav pull-right top-nav">
+          <li class="social-icon">
+            <a href="{{ settings.twitter_link }} " target="_blank">
+            
+              <img src="http://www.urbanglass.org/images/twitter.png">
+         
+             
+            </a>
+          </li>
+          <li class="social-icon">
+            <a href="{{ settings.facebook_link }}" target="_blank">
+          
+              <img src="http://www.urbanglass.org/images/facebook.png">
+           
+            </a>
+          </li>
+
+        </ul>
+        </div><!-- container-wrapper -->
+      </div>
+
+      <div class="container">
+        <div class="container-wrapper">
+        <a class="navbar-brand" href="/">Urban Glass</a>
+
+        <ul class="nav navbar-nav main-nav">
+          <li ><a href="http://www.urbanglass.org/classes">Classes</a></li>
+          <li ><a href="http://www.urbanglass.org/studio">The Studio</a></li>
+          <li ><a href="http://www.urbanglass.org/events">Events</a></li>
+          <li  class="glassquarterly"><a href="http://www.urbanglass.org/glass">Glass Quarterly</a></li>
+          <li ><a href="http://www.urbanglass.org/support">Support</a></li>
+          <li ><a href="http://www.urbanglass.org/visit">Visit Us</a></li>
+          
+
+          
+        </ul>
+        </div><!-- container-wrapper -->
+      </div>
+
+    </div>
+
+
+
+
+<!-- store menu -->
+  <div class="navbar" id="navbar-sub">
+    <div class="container">
+        <ul class="nav navbar-nav" style="width:100%">
+          {% for link in linklists.main-menu.links %}
+          {% if linklists[link.handle] == empty %}
+          <li>
+            <a href="{{ link.url }}" class="{% if link.active %} current{% endif %}">
+              <span>{{ link.title }}</span></a>
+          </li>
+          {% else %}
+          <li class="dropdown"><a href="{{ link.url }}" class="{% if link.active %} current{% endif %}">
+            <span>{{ link.title }}</span></a>
+            <ul class="dropdown">
+              {% for l in linklists[link.handle].links %}
+              <li><a href="{{ l.url }}"{% if l.active %} class="current"{% endif %}>{{ l.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% endif %}
+          {% endfor %}
+
+          {% if cart.item_count > 0 %}
+                  <li class="pull-right">
+                  <a href="/cart" class="cart">
+                    Cart ({{cart.item_count}})
+                  </a>
+                  </li>
+          {% endif %}
+        </ul>
+    </div>
+  </div>
+  
+  </header>
+  
+  <div id="main-wrapper">
+    <div class="container" id="main">
+      <div class="inner-wrapper">
+
+
+      <section id="content" class="clearfix">
+       
+            {{ content_for_layout }}
+         
+      </section>
+      <!-- End content-->
+      </div>
+    </div>
+  </div>
+  <!-- End wrapper -->
+  
+  
+  <footer class="footer">
+    <div class="container">
+
+
+      <div class="row">
+
+        <div class="col-xs-2">
+
+          <img src="http://www.urbanglass.org/images/UG_logo_web.png" class="footer-logo" />
+          <ul class="list-unstyled">
+            <li><address>{{ shop.address }}</address></li>
+            <li><a href="mailto:{contact_email}">{{ shop.email }}</a></li>
+            <li>{{ shop.phone }}</li>
+            <li><a href="https://www.google.com/maps/preview?q={{ shop.address }}" target="_blank">Directions</a>
+          </ul>
+
+          <div class="fb-like" data-href="https://www.facebook.com/UrbanGlass" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+
+        </div>
+
+        <div class="col-xs-3">
+          <ul class="list-unstyled" style="padding-left:40px;">
+          <li><a href="/classes">Classes & Lessons</a></li>
+          <li><a href="/studio">The Studio</a></li>
+          <li><a href="/exhibitions">Exhibitions</a></li>
+          <li class="glassquarterly"><a href="/glass">Glass Quarterly</a></li>
+          <li><a href="/support">Support</a></li>
+          <li><a href="/visit">Visit Us</a></li>
+          <li><a href="/press">Press</a></li>
+          <li><a href="/staff">Our Staff</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-3 col-md-offset-4">
+          <h6>Join Our Mailing List</h6>
+            <div class="input-group newsletter">
+          
+            <form class="input-group newsletter" name="ccoptin" action="http://visitor.r20.constantcontact.com/d.jsp" target="_blank" method="post" style="margin-bottom:2;">
+              <input type="hidden" name="llr" value="w44s6qmab">
+              <input type="hidden" name="m" value="1112964431862">
+              <input type="hidden" name="p" value="oi">
+              <input type="text" name="ea" size="20" value="" class="form-control">
+              <span class="input-group-btn">
+                <input type="submit" name="go" value="Join" class="btn">
+              </span>
+            </form>
+
+
+            
+            </div><!-- /input-group -->
+          <p class="global-description">{{ shop.description }} </p>
+        </div>
+
+      </div>
+
+
+    </div>
+  </footer>
+
+  <!-- End footer -->
+    
+  {{ 'jquery.flexslider-min.js' | asset_url | script_tag }}
+
+  {% if settings.enable_product_image_zoom %}
+    {{ 'jquery.zoom.js' | asset_url | script_tag }}
+  {% endif %}
+  {{ 'jquery.tweet.js' | asset_url | script_tag }}
+  {{ 'jquery.fancybox.js' | asset_url | script_tag }}
+
+  
+  {% if template contains 'product' %}
+  
+  <script>
+
+  var selectCallback = function(variant, selector) {
+    if (variant && variant.available) {
+      jQuery('#add-to-cart').removeAttr('disabled').removeClass('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+      if(variant.price < variant.compare_at_price){
+        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + " <del>" + Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}") + "</del>");
+      } else {
+        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
+      }
+    } else {
+      jQuery('#add-to-cart').addClass('disabled').attr('disabled', 'disabled'); // set add-to-cart button to unavailable class and disable button
+      var message = variant ? "Sold Out" : "Unavailable";
+      jQuery('#price-preview').text(message);
+    }
+  };
+  
+  jQuery(document).ready(function($){
+    new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+
+    // Add label if only one product option and it isn't 'Title'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+    {% endif %}
+  
+    // Auto-select first available variant on page load.
+    {% assign found_one_in_stock = false %}
+    {% for variant in product.variants %}
+      {% if variant.available and found_one_in_stock == false %}
+        {% assign found_one_in_stock = true %}
+        {% for option in product.options %}
+        $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+  });
+  </script>
+  {% endif %}
+  
+</body>
+</html>

@@ -61,26 +61,31 @@
   <legend>Global Annoucement</legend>
   <table>
     <tr class="horizontal">
-      <th><label for="enable_product_image_zoom">Annoucement Heading</label></th>
-      <td><input type="text" id="annoucement_heading" name="annoucement_heading" value="" /></td>
+      <th><label for="announcement_heading">Annoucement Heading</label></th>
+      <td><input type="text" id="announcement_heading" name="announcement_heading" value="" /></td>
     </tr>
 
     
     <tr class="horizontal">
-      <th><label for="display_quantity_dropdown">Announcement Subheading</label></th>
+      <th><label for="announcement_subheading">Announcement Subheading</label></th>
       <td>
         <input type="text" id="announcement_subheading" name="announcement_subheading" value="" />
       </td>
     </tr>
     
     <tr class="horizontal">
-      <th><label for="show_related_products">Link To</label></th>
+      <th><label for="announcement_link">Link To</label></th>
       <td><input type="text" id="announcement_link" name="announcement_link" value="" /></td>
     </tr>
 
     <tr class="horizontal">
-      <th><label for="enable_product_image_zoom">Banner Color</label></th>
+      <th><label for="banner_color">Banner Color</label></th>
       <td><input name="banner_color" id="banner_color" class="color" type="text" value="#eb382e" /></td>
+    </tr>
+
+    <tr class="horizontal">
+      <th><label for="banner_text_color">Text Color</label></th>
+      <td><input type="text" id="banner_text_color" name="banner_text_color" class="color" value="#ffffff" /></td>
     </tr>
   </table>
 </fieldset>
@@ -146,32 +151,248 @@
     <tr class="horizontal">
       <table>
         <tr class="odd">
-          <td><label for="show_carousel_item_4">Monday</label></td>
-          <td><input type="text" id="twitter_link" name="twitter_link" /></td>
+          <td><label for="art_center_monday">Monday</label></td>
+          <td><select name="art_center_monday_opening" id="art_center_monday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_monday_closing" id="art_center_monday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_monday_closed" name="art_center_monday_closed" value="1"/></td>
         </tr>
         <tr class="odd">
-          <td><label for="facebook_link">Tuesday</label></td>
-          <td><input type="text" id="facebook_link" name="facebook_link" /></td>
-        </tr> 
+          <td><label for="art_center_tuesday">Tuesday</label></td>
+          <td><select name="art_center_tuesday_opening" id="art_center_tuesday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_tuesday_closing" id="art_center_tuesday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+       </select></td>
+        <td>Closed <input type="checkbox" id="art_center_tuesday_closed" name="art_center_tuesday_closed" value="1"/></td>
+        </tr>        
         <tr class="odd">
-          <td><label for="show_carousel_item_4">Wednesday</label></td>
-          <td><input type="text" id="twitter_link" name="twitter_link" /></td>
-        </tr>
+          <td><label for="art_center_wednesday">Wednesday</label></td>
+          <td><select name="art_center_wednesday_opening" id="art_center_wednesday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_wednesday_closing" id="art_center_wednesday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_wednesday_closed" name="art_center_wednesday_closed" value="1"/></td>
+        </tr>        
         <tr class="odd">
-          <td><label for="facebook_link">Thursday</label></td>
-          <td><input type="text" id="facebook_link" name="facebook_link" /></td>
-        </tr>   
+          <td><label for="art_center_thursday">Thursday</label></td>
+          <td><select name="art_center_thursday_opening" id="art_center_thursday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_thursday_closing" id="art_center_thursday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_thursday_closed" name="art_center_thursday_closed" value="1"/></td>
+        </tr>        
         <tr class="odd">
-          <td><label for="show_carousel_item_4">Friday</label></td>
-          <td><input type="text" id="twitter_link" name="twitter_link" /></td>
-        </tr>
+          <td><label for="art_center_friday">Friday</label></td>
+          <td><select name="art_center_friday_opening" id="art_center_friday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_friday_closing" id="art_center_friday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_friday_closed" name="art_center_friday_closed" value="1"/></td>
+        </tr>        
         <tr class="odd">
-          <td><label for="facebook_link">Saturday</label></td>
-          <td><input type="text" id="facebook_link" name="facebook_link" /></td>
-        </tr> 
+          <td><label for="art_center_saturday">Saturday</label></td>
+          <td><select name="art_center_saturday_opening" id="art_center_saturday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="art_center_saturday_closing" id="art_center_saturday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_saturday_closed" name="art_center_saturday_closed" value="1"/></td>
+        </tr>        
         <tr class="odd">
-          <td><label for="show_carousel_item_4">Sunday</label></td>
-          <td><input type="text" id="twitter_link" name="twitter_link" /></td>
+          <td><label for="art_center_sunday">Sunday</label></td>
+          <td><select name="art_center_sunday_opening" id="art_center_sunday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> to         
+        <select name="art_center_sunday_closing" id="art_center_sunday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="art_center_sunday_closed" name="art_center_sunday_closed" value="1"/></td>
         </tr>        
       </table>
     </tr>
@@ -180,6 +401,255 @@
       <td colspan="2">
         <h3>Studio Hours</h3>
       </td> 
+    </tr>
+
+    <tr class="horizontal">
+      <table>
+        <tr class="odd">
+          <td><label for="studio_monday">Monday</label></td>
+          <td><select name="studio_monday_opening" id="studio_monday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_monday_closing" id="studio_monday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_monday_closed" name="studio_monday_closed" value="1"/></td>
+        </tr>
+        <tr class="odd">
+          <td><label for="studio_tuesday">Tuesday</label></td>
+          <td><select name="studio_tuesday_opening" id="studio_tuesday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_tuesday_closing" id="studio_tuesday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+       </select></td>
+        <td>Closed <input type="checkbox" id="studio_tuesday_closed" name="studio_tuesday_closed" value="1"/></td>
+        </tr>        
+        <tr class="odd">
+          <td><label for="studio_wednesday">Wednesday</label></td>
+          <td><select name="studio_wednesday_opening" id="studio_wednesday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_wednesday_closing" id="studio_wednesday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_wednesday_closed" name="studio_wednesday_closed" value="1"/></td>
+        </tr>        
+        <tr class="odd">
+          <td><label for="studio_thursday">Thursday</label></td>
+          <td><select name="studio_thursday_opening" id="studio_thursday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_thursday_closing" id="studio_thursday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_thursday_closed" name="studio_thursday_closed" value="1"/></td>
+        </tr>        
+        <tr class="odd">
+          <td><label for="studio_friday">Friday</label></td>
+          <td><select name="studio_friday_opening" id="studio_friday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_friday_closing" id="studio_friday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_friday_closed" name="studio_friday_closed" value="1"/></td>
+        </tr>        
+        <tr class="odd">
+          <td><label for="studio_saturday">Saturday</label></td>
+          <td><select name="studio_saturday_opening" id="studio_saturday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> 
+        to         
+        <select name="studio_saturday_closing" id="studio_saturday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_saturday_closed" name="studio_saturday_closed" value="1"/></td>
+        </tr>        
+        <tr class="odd">
+          <td><label for="studio_sunday">Sunday</label></td>
+          <td><select name="studio_sunday_opening" id="studio_sunday_opening">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select> to         
+        <select name="studio_sunday_closing" id="studio_sunday_closing">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select></td>
+        <td>Closed <input type="checkbox" id="studio_sunday_closed" name="studio_sunday_closed" value="1"/></td>
+        </tr>        
+      </table>
     </tr>
 
     <tr>
@@ -201,7 +671,34 @@
       </table>
     </tr>
 
+    <tr>
+      <td colspan="2">
+        <h3>Details</h3>
+      </td> 
+    </tr>
 
-    
+    <tr class="horizontal">
+      <table>
+        <tr class="odd">
+          <td><label for="footer_description">Site Description</label></td>
+          <td><textarea name="footer_description" cols="60" rows="5" id="footer_description" value="" /></td>
+        </tr>       
+      </table>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <h3>Location</h3>
+      </td> 
+    </tr>
+
+    <tr class="horizontal">
+      <table>
+        <tr class="odd">
+          <td><label for="address">Address</label></td>
+          <td><textarea name="address" cols="60" rows="5" id="address" value="" /></td>
+        </tr>         
+      </table>
+    </tr>
   </table>
 </fieldset>

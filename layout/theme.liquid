@@ -23,7 +23,7 @@
 
   {% include 'fb-open-graph-tags' %}
 
-  <link rel="stylesheet" type="text/css" href="http://www.urbanglass.org/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="https://www.urbanglass.org/css/styles.css" />
   
   {% if settings.header_font contains 'Google' %}
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
@@ -166,26 +166,54 @@
 
           <img src="http://www.urbanglass.org/images/UG_logo_web.png" class="footer-logo" />
           <ul class="list-unstyled">
-            <li><address>{{ shop.address }}</address></li>
+            <li><address>{{ settings.address }}</address></li>
             <li><a href="mailto:{contact_email}">{{ shop.email }}</a></li>
             <li>{{ shop.phone }}</li>
-            <li><a href="https://www.google.com/maps/preview?q={{ shop.address }}" target="_blank">Directions</a>
+            <li><a href="https://www.google.com/maps/preview?q={{ settings.address }}" target="_blank">Directions</a>
           </ul>
 
           <div class="fb-like" data-href="https://www.facebook.com/UrbanGlass" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 
         </div>
+        <div class="col-xs-2">
+        <section class="exhibition-hours">
+            <h6>Art Center Hours</h6>
+
+            <ul class="list-unstyled"> 
+              <li><p><span>Monday</span>{% if settings.art_center_monday_closed %}Closed{% else %}{{settings.art_center_monday_opening}} to {{settings.art_center_monday_closing}}{% endif %}</p></li>
+              <li><p><span>Tuesday</span>{% if settings.art_center_tuesday_closed %}Closed{% else %}{{settings.art_center_tuesday_opening}} to {{settings.art_center_tuesday_closing}}{% endif %}</p></li>
+              <li<p><span>Wednesday</span>{% if settings.art_center_wednesday_closed %}Closed{% else %}{{settings.art_center_wednesday_opening}} to {{settings.art_center_wednesday_closing}}{% endif %}</p></li>
+              <li><p><span>Thursday</span>{% if settings.art_center_thursday_closed %}Closed{% else %}{{settings.art_center_thursday_opening}} to {{settings.art_center_thursday_closing}}{% endif %}</p></li>
+              <li><p><span>Friday</span> {% if settings.art_center_friday_closed %}Closed{% else %}{{settings.art_center_friday_opening}} to {{settings.art_center_friday_closing}}{% endif %}</p></li>
+              <li><p><span>Saturday</span>{% if settings.art_center_saturday_closed %}Closed{% else %}{{settings.art_center_saturday_opening}} to {{settings.art_center_saturday_closing}}{% endif %}</p></li>
+              <li><p><span>Sunday</span>{% if settings.art_center_sunday_closed %}Closed{% else %}{{settings.art_center_sunday_opening}} to {{settings.art_center_sunday_closing}}{% endif %}</p></li>  
+            </ul>
+          </section>
+        </div>
+        <div class="col-xs-2">
+        <section class="exhibition-hours">
+            <h6>Studio Hours</h6>
+
+            <ul class="list-unstyled">
+              <li><p><span>Monday</span>{% if settings.studio_monday_closed %}Closed{% else %}{{settings.studio_monday_opening}} to {{settings.studio_monday_closing}}{% endif %}</p></li>
+              <li><p><span>Tuesday</span>{% if settings.studio_tuesday_closed %}Closed{% else %}{{settings.studio_tuesday_opening}} to {{settings.studio_tuesday_closing}}{% endif %}</p></li>
+              <li<p><span>Wednesday</span>{% if settings.studio_wednesday_closed %}Closed{% else %}{{settings.studio_wednesday_opening}} to {{settings.studio_wednesday_closing}}{% endif %}</p></li>
+              <li><p><span>Thursday</span>{% if settings.studio_thursday_closed %}Closed{% else %}{{settings.studio_thursday_opening}} to {{settings.studio_thursday_closing}}{% endif %}</p></li>
+              <li><p><span>Friday</span>{% if settings.studio_friday_closed %}Closed{% else %}{{settings.studio_friday_opening}} to {{settings.studio_friday_closing}}{% endif %}</p></li>
+              <li><p><span>Saturday</span>{% if settings.studio_saturday_closed %}Closed{% else %}{{settings.studio_saturday_opening}} to {{settings.studio_saturday_closing}}{% endif %}</p></li>
+              <li><p><span>Sunday</span>{% if settings.studio_sunday_closed %}Closed{% else %}{{settings.studio_sunday_opening}} to {{settings.studio_sunday_closing}}{% endif %}</p></li>
+            </ul>
+          </section>
+        </div>
 
         <div class="col-xs-3">
           <ul class="list-unstyled" style="padding-left:40px;">
-          <li><a href="/classes">Classes & Lessons</a></li>
-          <li><a href="/studio">The Studio</a></li>
-          <li><a href="/exhibitions">Exhibitions</a></li>
-          <li class="glassquarterly"><a href="/glass">Glass Quarterly</a></li>
-          <li><a href="/support">Support</a></li>
-          <li><a href="/visit">Visit Us</a></li>
-          <li><a href="/press">Press</a></li>
-          <li><a href="/staff">Our Staff</a></li>
+          {% for link in linklists.footer.links %}
+            <li>
+              <a href="{{ link.url }}" class="{% if link.active %} current{% endif %}">
+                <span>{{ link.title }}</span></a>
+            </li>
+          {% endfor %}
           </ul>
         </div>
 
@@ -206,7 +234,7 @@
 
             
             </div><!-- /input-group -->
-          <p class="global-description">{{ shop.description }} </p>
+          <p class="global-description">{{ settings.footer_description }} </p>
         </div>
 
       </div>

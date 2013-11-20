@@ -135,6 +135,21 @@
     <!-- End description -->
 
   </div>
+<hr>
+<!-- Begin announcement banner -->
+
+  {% if settings.announcement_heading != "" %}
+    <div class="announcement">
+      <div class="banner" style="text-align:center; 
+                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
+                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
+                    width:100%;">
+        <h3>{{settings.announcement_heading}}</h3>
+        <p>{{settings.announcement_subheading}}</p>
+      </div>
+    </div>
+  {% endif %}
+  <!-- End announcement banner -->
 
   <!-- Begin related product -->
   {% if settings.show_related_products %}

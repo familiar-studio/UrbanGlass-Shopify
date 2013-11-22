@@ -1,15 +1,27 @@
+<!-- announcement banner -->
+
+  {% if settings.announcement_heading != "" %}
+    <div class="announcement">
+      <div class="banner" style="text-align:center; 
+                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
+                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
+                    width:100%;">
+        <h3>{{settings.announcement_heading}}</h3>
+        <p>{{settings.announcement_subheading}}</p>
+      </div>
+    </div>
+  {% endif %}
+
 <div id="collection">
   
   {% paginate collection.products by settings.pagination_limit %}
   <!-- Begin collection info -->
   <div class="row">
     <div class="span12">
-      
-     
 
       <!-- Begin sort collection -->
       <div class="clearfix">
-        <h1 class="section title">{{ collection.title }}</h1>
+       <!-- <h1 class="section title">{{ collection.title }}</h1> -->
         {% if settings.collection_tags %}
           {% capture col_url%}{% if collection.url.size == 0 %}/collections/all{%else%}{{collection.url}}{%endif%}{%endcapture%}
           {% if collection.all_tags.size > 0 %}
@@ -35,7 +47,16 @@
       
     </div>
   </div>
+        <hr>
   <!-- End collection info -->
+  <!-- Sorting options -->
+  <div>
+    <select class="sort-options">
+            <option value="title">Title</option>
+            <option value="price">Price</option>
+    </select>
+  </div>
+  <!-- End sorting options -->
   
   <!-- Begin no products -->
   {% if collection.products.size == 0 %}
@@ -45,8 +66,8 @@
     </div>
   </div>
   {% endif %}
-  
-  <div class="row products">
+  <!-- End no products -->
+  <div class="row products" id="grid">
     {% for product in collection.products limit: settings.pagination_limit %}
       {% include 'product-loop' with collection.handle %}
     {% endfor %}
@@ -55,6 +76,5 @@
   {% include 'pagination' %}
 
   {% endpaginate %}
-  <!-- End no products -->
   
 </div>

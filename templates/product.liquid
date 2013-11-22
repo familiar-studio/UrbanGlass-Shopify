@@ -2,7 +2,11 @@
   
   <div class="row clearfix">
     
-    
+    {% if product.handle == 'donation' %}
+      <script type="text/javascript">$("#support").addClass("active");</script>
+    {% endif %}
+
+
     <!-- Begin product photos -->
     <div class="col-md-6">
       
@@ -61,7 +65,7 @@
         {% assign productVendor = product.vendor | handle %}
         {% for collection in product.collections %}
 
-          {% if collection.handle != 'frontpage' and collection.handle != product.vendor | handle  %}
+          {% if collection.handle != 'frontpage' and collection.handle != 'all' and collection.handle != product.vendor | handle  %}
             <li><a href="/collections/{{ collection.handle }} ">{{ collection.title }}</a></li>
           {% endif %}
         {% endfor %}
@@ -71,6 +75,10 @@
 
       <h3> <a href="/collections/{{product.vendor | handle }}">{{product.vendor}}</a></h3>
       
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
+      {% if product.handle != 'donation' %}
+
+      <!-- Begin non-donation markup -->
       <div class="purchase">
         <h2 class="price" id="price-preview">{{ product.price_min | money }}{% if product.price_min < product.compare_at_price_min %} <del>{{ product.compare_at_price_min | money }}</del>{% endif %}</h2>
       </div>
@@ -79,10 +87,7 @@
       {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
         {% assign hide_default_title = true %}
       {% endif %}
-            
-      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
         
-        <!-- Begin product options -->
         <div class="product-options">
 
           <div class="select clearfix"{% if hide_default_title %} style="display:none"{% endif %}>
@@ -110,16 +115,33 @@
               {% endunless %}
             </div>
           </div>
-
-
-
-
-
-
         </div>
-        <!-- End product options -->
+      <!-- End non-donation markup -->
 
+      {% else %}
+
+      <!-- Begin donation specific markup -->
+
+      <label for="quantity">Amount: </label> 
+          $ <input min="1" type="number" id="quantity" name="quantity" value="1" class="tc item-quantity" />
+
+      <input type="hidden" name="id" value="413817885" />
+        <div class="product-options">
+          <div class="select clearfix"{% if hide_default_title %} style="display:none"{% endif %}>
+          </div>
+
+          <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}">
+            <div class="purchase">
+              <input type="submit" id="add-to-cart" class="btn btn-default addtocart" name="add" value="Add to cart" />
+              <div id="cart-animation" style="display:none">1</div>
+            </div>
+          </div>
+        </div>
       </form>
+
+
+      <!-- End donation specific markup -->
+      {% endif %}
 
       <div class="description">
         {{ product.description }}

@@ -1,18 +1,22 @@
+<!-- announcement banner -->
+
 <div id="search">
+  {% if settings.announcement_heading != "" %}
+    <div class="announcement">
+      <div class="banner" style="text-align:center; 
+                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
+                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
+                    width:100%;">
+        <h3>{{settings.announcement_heading}}</h3>
+        <p>{{settings.announcement_subheading}}</p>
+      </div>
+    </div>
+  {% endif %}
+
   {% if search.performed %}
   {% paginate search.results by settings.pagination_limit %}
 
   {% if search.terms == "" %}
-  <div class="row">
-    <div class="span12 expanded-message">
-      <div class="search-field">
-        <form class="search" action="/search">
-          <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
-          <input type="text" name="q" class="search_box" placeholder="Search" value=""  />
-        </form>
-      </div>
-    </div>
-  </div>
   {% else %}
   
   {% if search.results == empty %}
@@ -20,12 +24,6 @@
     <div class="span12 expanded-message">
       <h2>No search results</h2>
       <span class="subtext">Your search for <strong>"{{ search.terms }}"</strong> did not yield any results. Try searching for something else.</span>
-      <div class="search-field">
-        <form class="search" action="/search">
-          <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
-          <input type="text" name="q" class="search_box" placeholder="Search" value="{{ search.terms | escape }}"  />
-        </form>
-      </div>
     </div>
   </div>
   {% else %}
@@ -40,14 +38,18 @@
   {% for item in search.results %}
   <div class="row results">
     <div class="span1">
-      <div class="thumbnail">
-        <a href="{{ item.url }}">{{ item.featured_image | product_img_url: 'small' | img_tag }}</a>
-      </div>
+  <div class="result-image">
+    <a href="{{ item.url }}" title="{{ item.title | escape }}">
+      {{ item.featured_image.src | product_img_url: 'small' | img_tag: item.featured_image.alt }}
+    </a>
+  </div>
     </div>
     <div class="span11">
       <div class="search-result">
         <h3>{{ item.title | highlight: search.terms | link_to: item.url }}</h3>
-        {{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}
+        {% if item.title != "Donation" %}
+         {{ item.vendor | strip_html | truncatewords: 40 | highlight: search.terms }}, {{ item.price | money_with_currency }}
+        {% endif %}
       </div>
     </div>
     <hr class="divider" />
@@ -63,17 +65,6 @@
   {% endpaginate %}
   
   {% else %}
-
-  <div class="row">
-    <div class="span12 expanded-message">
-      <div class="search-field">
-        <form class="search" action="/search">
-          <input type="image" src="{{ 'icon-search.png' | asset_url }}" alt="Go" id="go">
-          <input type="text" name="q" class="search_box" placeholder="Search" value="" />
-        </form>
-      </div>
-    </div>
-  </div>
 
   {% endif %}	
 </div> <!-- /#search -->

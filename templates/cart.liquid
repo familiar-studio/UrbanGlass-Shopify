@@ -48,7 +48,11 @@
                 </a>
               </td>
               <td class="qty">
+                {%  if item.product.title != 'Donation' %}
                 <input type="text" size="4" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" onfocus="this.select();" class="tc item-quantity" />
+                {% else %}
+                <span>1</span>
+                {% endif %}
               </td>
               <td class="price">{{ item.line_price | money }}</td>
               <td class="remove"><a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart">Remove</a></td>

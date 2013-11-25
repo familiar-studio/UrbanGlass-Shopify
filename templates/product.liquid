@@ -1,11 +1,6 @@
-<div id="product" class="{{ product.handle }}">
-  
-  <div class="row clearfix">
-    
-    {% if product.handle == 'donation' %}
-      <script type="text/javascript">$("#support").addClass("active");</script>
-    {% endif %}
 
+<div id="product" class="{{ product.handle }}">
+  <div class="row clearfix">
 
     <!-- Begin product photos -->
     <div class="col-md-6">
@@ -59,17 +54,15 @@
     <!-- Begin description -->
     <div class="col-md-6">
 
-      <!-- need to think about a better way to do this -->
-      <ul class="list-inline">
-
+      <!-- Bookmark : Consider more efficient methods -->
         {% assign productVendor = product.vendor | handle %}
         {% for collection in product.collections %}
 
           {% if collection.handle != 'frontpage' and collection.handle != 'all' and collection.handle != product.vendor | handle  %}
-            <li><a href="/collections/{{ collection.handle }} ">{{ collection.title }}</a></li>
+            <a class="gray-link" href="/collections/{{ collection.handle }} "><h6>{{ collection.title }}</h6></a>
           {% endif %}
         {% endfor %}
-      </ul>
+      <!-- End Bookmark -->
       
       <h1 class="title">{{ product.title }}</h1>
 

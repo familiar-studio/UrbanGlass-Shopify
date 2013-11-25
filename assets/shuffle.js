@@ -89,7 +89,7 @@ $.fn.sorted = function(options) {
     if ( opts.reverse ) {
         arr.reverse();
     }
-
+    console.log(arr);
     return arr;
 
 };
@@ -303,11 +303,11 @@ Shuffle.prototype = {
             self.group = category;
             if (category !== 'all') {
                 $items.each(function() {
-                    var $this = $(this),
-                    groups = $this.data('groups'),
-                    keys = self.delimeter && !$.isArray( groups ) ? groups.split( self.delimeter ) : groups,
-                    passes = $.inArray(category, keys) > -1;
-
+                    var $this = $(this);
+                    var groups = $this.data('groups');
+                    var keys = self.delimeter && !$.isArray( groups ) ? groups.split( self.delimeter ) : groups;
+                    var passes = jQuery.inArray(category, keys) !== -1;
+                    console.log(category, keys, passes);
                     if ( passes ) {
                         $filtered = $filtered.add( $this );
                     }
@@ -325,7 +325,6 @@ Shuffle.prototype = {
 
         $items = null;
         $collection = null;
-
         return $filtered;
     },
 

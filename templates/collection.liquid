@@ -51,11 +51,20 @@
   <!-- End collection info -->
   <!-- Sorting options -->
   <div>
-    <select class="sort-options">
-            <option value="title">Title</option>
-            <option value="price">Price</option>
-    </select>
+          <select class="sort-options form-control input-sm">
+            <option value="title-des">Title (A - Z)</option>
+            <option value="title-asc">Title (Z - A)</option>
+            <option value="price-des">Price (Lowest to Highest)</option>
+            <option value="price-asc">Price (Highest to Lowest)</option>
+          </select>
   </div>
+  <section class="button-filters">
+  <ul class="nav nav-pills filter-options">
+    <li data-group="one"><a href="#">$25 and Under</a></li>
+    <li data-group="two"><a href="#">$50 and Under</a></li>
+    <li data-group="three"><a href="#">$100 and Under</a></li>
+    </ul>
+  </section>
   <!-- End sorting options -->
   
   <!-- Begin no products -->
@@ -67,6 +76,10 @@
   </div>
   {% endif %}
   <!-- End no products -->
+  <style>
+    .sort { height:33em; }
+    .sort div {display:inline;}
+  </style>
   <div class="row products" id="grid">
     {% for product in collection.products limit: settings.pagination_limit %}
       {% include 'product-loop' with collection.handle %}

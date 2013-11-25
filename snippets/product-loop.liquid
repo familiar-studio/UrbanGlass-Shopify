@@ -1,8 +1,12 @@
 {% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
 {% capture url %}{% if collection_handle != "" %}/collections/{{ product-loop }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
 
-<div class="product col-md-4" class="sort" data-title="{{ product.title }}" {% if product.price < 10000 %}data-price="{% if product.price < 2500 %}25{% elsif product.price < 5000 %}50{% else %}100{% endif %}"{% endif %}>
-
+<div class="product col-md-3 sort" 
+    data-title="{{ product.title }}" 
+    data-price="{{ product.price }}" 
+  {% if product.price <= 10000 %}
+    data-groups='["three"{% if product.price <= 5000 %}, "two"{% elsif product.price <= 2500 %}, "one"{% endif %}]'
+  {% endif %}>
   <div class="image">
     <a href="{{ url }}">
       <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape  }}" />
@@ -12,7 +16,9 @@
   <div class="details">
     <a href="{{ url }}" class="clearfix">
       <h4 class="title">{{ product.title }}</h4>
-     {{product.vendor}}
+      
+      <h5>
+      {{product.vendor}}
       <span class="price">
       {% if product.available %}
         {% if product.compare_at_price_max > product.price %}
@@ -26,6 +32,7 @@
         {{ product.price | money }} Sold Out
       {% endif %}
       </span>
+      </h5>
       
     </a>
   </div>

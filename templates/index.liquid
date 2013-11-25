@@ -9,7 +9,7 @@
 	    <li {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
 	     	<div class="container">
 	     	<img {% if settings.slide_1_link %} onclick="window.location ='{{settings.slide_1_link}}'"{% endif %} src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_1_text }}</p>
+	     
 	      	</div>
 	    </li>
 	    {% endif %}
@@ -17,7 +17,7 @@
 	    <li {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %}>
 	      <div class="container">
 	      <img {% if settings.slide_2_link %} onclick="window.location ='{{settings.slide_2_link}}'" {% endif %} src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_2_text }}</p>
+	
 	      </div>
 	    </li>
 	    {% endif %}
@@ -25,7 +25,7 @@
 	    <li {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
 	      <div class="container">
 	      <img {% if settings.slide_3_link %} onclick="window.location ='{{settings.slide_3_link}}'" {% endif %} src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_3_text }}</p>
+	   
 	      </div>
 	    </li>
 	    {% endif %}
@@ -34,23 +34,23 @@
 	<div class="container"><div class="inner-wrapper">
 	<!-- Flexslider navigation carousel begins -->
 	<div id="carousel" class="flexslider">
-	  <ul class="slides">
+	  <div class="slides row">
 	  	{% if settings.slide_1 %}
-	    <li {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
+	    <div {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %} class="col-md-4 item">
 	      <img src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	    </li>
+	    </div>
 	    {% endif %}
 	    {% if settings.slide_2 %}
-	    <li {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %}>
+	    <div {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %} class="col-md-4 item">
 	      <img src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	    </li>
+	    </div>
 	    {% endif %}
 	    {% if settings.slide_3 %}
-	    <li {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
+	    <div {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %} class="col-md-4 item">
 	      <img src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
-	    </li>
+	    </div>
 	    {% endif %}
-	  </ul>
+	  </div>
 	</div>
 <!-- Flexslider ends here -->
 {% endif %}

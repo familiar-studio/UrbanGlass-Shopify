@@ -1,16 +1,6 @@
 <!-- announcement banner -->
 
-  {% if settings.announcement_heading != "" %}
-    <div class="announcement">
-      <div class="banner" style="text-align:center; 
-                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
-                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
-                    width:100%;">
-        <h3>{{settings.announcement_heading}}</h3>
-        <p>{{settings.announcement_subheading}}</p>
-      </div>
-    </div>
-  {% endif %}
+{% include 'annoucement' %}
 
 <div id="collection">
   
@@ -47,10 +37,12 @@
       
     </div>
   </div>
-        <hr>
+     
   <!-- End collection info -->
   <!-- Sorting options -->
   <div>
+
+  <label>Sort by</label>
           <select class="sort-options form-control input-sm">
             <option value="title-des">Title (A - Z)</option>
             <option value="title-asc">Title (Z - A)</option>
@@ -58,6 +50,8 @@
             <option value="price-asc">Price (Highest to Lowest)</option>
           </select>
   </div>
+
+  <label>Price</label>
   <section class="button-filters">
   <ul class="nav nav-pills filter-options">
     <li data-group="one"><a href="#">$25 and Under</a></li>
@@ -66,6 +60,8 @@
     </ul>
   </section>
   <!-- End sorting options -->
+
+  <hr/>
   
   <!-- Begin no products -->
   {% if collection.products.size == 0 %}

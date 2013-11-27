@@ -11,32 +11,24 @@
 
       <!-- Begin sort collection -->
       <div class="clearfix">
-       <!-- <h1 class="section title">{{ collection.title }}</h1> -->
-        {% if settings.collection_tags %}
-          {% capture col_url%}{% if collection.url.size == 0 %}/collections/all{%else%}{{collection.url}}{%endif%}{%endcapture%}
-          {% if collection.all_tags.size > 0 %}
-          <div class="browse-tags">
-          	<label>Browse:</label>
-          	<select name="collection_tags" id="collection_tags" class="loc_on_change">
-          		<option value="{{ col_url }}">All items</option>
-          		{% for tag in collection.all_tags %}
-          			<option value="{{col_url}}/{{ tag | handle }}"{% if current_tags contains tag %} selected="selected"{%endif%}>{{ tag }}</option>
-          		{% endfor %}
-          	</select>
-          </div>
-          {% endif %}
-        {% endif %}
+      <h1 class="section title">{{ collection.title }}</h1>
+
+      {% if collection.description != "" %}
+ <div id="collectionDescription">
+   <p>{{ collection.description }}</p>
+   <hr style="clear:both"/>
+  </div>
+  {% endif %}
+       
       </div>
       <!-- End sort collection -->
       
-      <!-- Begin collection description -->
-      {% if collection.description != "" %}
-        {{ collection.description }}
-      {% endif %}
-      <!-- End collection description -->
+     
       
     </div>
   </div>
+
+
      
   <!-- End collection info -->
   <!-- Sorting options -->
@@ -51,17 +43,21 @@
           </select>
   </div>
 
-  <label>Price</label>
+ <label>Price</label>
   <section class="button-filters">
-  <ul class="nav nav-pills filter-options">
+ 
+    <ul class="nav nav-pills filter-options">
+
+    <li data-group="all"><a href="#">All</a></li>
     <li data-group="one"><a href="#">$25 and Under</a></li>
     <li data-group="two"><a href="#">$50 and Under</a></li>
     <li data-group="three"><a href="#">$100 and Under</a></li>
     </ul>
+    
   </section>
   <!-- End sorting options -->
 
-  <hr/>
+  <hr style="clear:both"/>
   
   <!-- Begin no products -->
   {% if collection.products.size == 0 %}
@@ -72,11 +68,18 @@
   </div>
   {% endif %}
   <!-- End no products -->
-  <style>
-    .sort { height:33em; }
-    .sort div {display:inline;}
-  </style>
+ 
+
+   <!-- Begin collection description -->
+ 
+  <!-- End collection description -->
   <div class="row products" id="grid">
+
+    
+     
+      
+      
+      
     {% for product in collection.products limit: settings.pagination_limit %}
       {% include 'product-loop' with collection.handle %}
     {% endfor %}

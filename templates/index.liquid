@@ -33,8 +33,10 @@
 	</div>
 	<div class="container"><div class="inner-wrapper">
 	<!-- Flexslider navigation carousel begins -->
+
+	{% if settings.slide_3 != false or settings.slide_2 != false %}
 	<div id="carousel" class="flexslider">
-	  <div class="slides row">
+	  <div class="slides row {% if settings.slide_3 == false and  settings.slide_2 == true %} twoUp {% endif %} ">
 	  	{% if settings.slide_1 %}
 	    <div  class="col-xs-4 ">
 	    	<div class="item" {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
@@ -61,6 +63,7 @@
 	    {% endif %}
 	  </div>
 	</div>
+	{% endif %}
 <!-- Flexslider ends here -->
 {% endif %}
 

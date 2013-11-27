@@ -16,6 +16,9 @@
       {% if collection.description != "" %}
  <div id="collectionDescription">
    <p>{{ collection.description }}</p>
+
+   <hr style="clear:both"/>
+
   </div>
   {% endif %}
        
@@ -42,17 +45,22 @@
           </select>
   </div>
 
-  <label>Price</label>
+ <label>Price</label>
   <section class="button-filters">
-  <ul class="nav nav-pills filter-options">
+ 
+    <ul class="nav nav-pills filter-options">
+
+    <li data-group="all"><a href="#">All</a></li>
+
     <li data-group="one"><a href="#">$25 and Under</a></li>
     <li data-group="two"><a href="#">$50 and Under</a></li>
     <li data-group="three"><a href="#">$100 and Under</a></li>
     </ul>
+    
   </section>
   <!-- End sorting options -->
 
-  <hr/>
+  <hr style="clear:both"/>
   
   <!-- Begin no products -->
   {% if collection.products.size == 0 %}
@@ -63,10 +71,6 @@
   </div>
   {% endif %}
   <!-- End no products -->
-  <style>
-    .sort { height:33em; }
-    .sort div {display:inline;}
-  </style>
 
    <!-- Begin collection description -->
  

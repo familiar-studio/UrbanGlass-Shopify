@@ -7,11 +7,13 @@
   {% if product.price <= 10000 %}
     data-groups='["three"{% if product.price <= 5000 %}, "two"{% elsif product.price <= 2500 %}, "one"{% endif %}]'
   {% endif %}>
-  <div class="image">
-    <a href="{{ url }}">
-      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape  }}" />
-    </a>
+
+  <a href="{{ url }}">
+  <div class="image" style="background-image:url({{ product.featured_image | product_img_url: 'large' }}); background-size: cover; background-repeat:no-repeat; background-position: 50% 50%;">
+
   </div>
+
+  </a>
   
   <div class="details">
     <a href="{{ url }}" class="clearfix">
@@ -38,5 +40,4 @@
   </div>
 </div>
 
-<!-- Determines how many columns in a row are displayed. -->
-{% cycle 'clear-product-loop': '', '', '', '<div style="clear:both;"></div>' %}
+{% cycle 'clear-product-loop': '', '','',  '<div style="clear:both;"></div>' %}

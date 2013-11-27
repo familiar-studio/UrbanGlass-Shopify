@@ -16,52 +16,54 @@
   <meta name="description" content="{{ page_description }}" />
   {% endif %}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width" />
   
   <link rel="canonical" href="{{ canonical_url }}" /> 
 
   {% include 'fb-open-graph-tags' %}
 
-  <link rel="stylesheet" type="text/css" href="https://www.urbanglass.org/css/styles.css" />
+
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7704852/737422/css/fonts.css" />
+  <link rel="stylesheet" type="text/css" href="http://www.urbanglass.org/css/styles.css" />
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  {{ 'ie.css' | asset_url | stylesheet_tag }}
+  <![endif]-->
+
   <link rel="stylesheet" type="text/css" href={{ "shuffle.css" | asset_url }} />
-  <link rel="stylesheet" type="text/css" href={{ "flexslider.css" | asset_url }} />
-  {% if settings.header_font contains 'Google' %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.header_font | remove: 'Google+' }}:300,400,700">
-  {% endif %}
-  {% if settings.base_font contains 'Google' %}
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family={{ settings.base_font | remove: 'Google+' }}:300,400,700">
-  {% endif %}
-  {{ 'html5shiv.js' | asset_url | script_tag }}
+  <link rel="stylesheet" type="text/css" href="http://www.urbanglass.org/css/flexslider.css" />
+ <!-- <link rel="stylesheet" type="text/css" href={{ "flexslider.css" | asset_url }} /> -->
+  
+
 
   {{ content_for_header }}
   
-  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js' | script_tag }}
   <script>
     $(window).load(function() {
       // The slider being synced must be initialized first
-      $('#carousel').flexslider({
-        itemWidth: 210,
-        itemMargin: 5,
-        animation: "slide",
-        controlNav: false,
-        animationLoop: false,
-        slideshow: false, 
-        asNavFor: '#slider'
-      });
+   //    $('#carousel').flexslider({
+   //       itemWidth: 300,
+   //       itemMargin: 5,
+   //      animation: "slide",
+   //      controlNav: false,
+   //      animationLoop: false,
+   //     slideshow: false, 
+   //      asNavFor: '#slider'
+   //    });
        
       $('#slider').flexslider({
         animation: "slide",
-        controlNav: false,
-        animationLoop: false,
-        slideshow: false,
-        sync: "#carousel"
+    
+         manualControls: "#carousel .slides .item"
       });
     });
   </script>
   
 </head>
 
-<body>
+<body id="store">
   
   <header>
 
@@ -78,7 +80,7 @@
         <fieldset  class="navbar-form pull-right">
           <input type="hidden" name="type" value="product" />
           <input type="search" class="form-control" style="width: 200px;" name="q" id="q">
-          <button type="submit" class="btn" onclick="document.forms['search'].submit();">Search</button>
+          <button type="submit" class="btn" onclick="document.forms['search'].submit();">Search the store</button>
         </fieldset>
 
         </form>
@@ -105,7 +107,7 @@
 
       <div class="container">
         <div class="container-wrapper">
-        <a class="navbar-brand" href="/">Urban Glass</a>
+          <a class="navbar-brand" href="http://www.urbanglass.org">Urban Glass</a>
 
         <ul class="nav navbar-nav main-nav">
           <li ><a href="http://www.urbanglass.org/classes">Classes</a></li>
@@ -114,6 +116,7 @@
           <li class="glassquarterly"><a href="http://www.urbanglass.org/glass">Glass Quarterly</a></li>
           <li id="support"><a href="http://www.urbanglass.org/support">Support</a></li>
           <li ><a href="http://www.urbanglass.org/visit">Visit Us</a></li>
+          <li  class="active"><a href="http://store.urbanglass.org/">Shop</a></li>
           
 
           
@@ -204,7 +207,7 @@
             <ul class="list-unstyled"> 
               <li><p><span>Monday</span>{% if settings.art_center_monday_closed %}Closed{% else %}{{settings.art_center_monday_opening}} to {{settings.art_center_monday_closing}}{% endif %}</p></li>
               <li><p><span>Tuesday</span>{% if settings.art_center_tuesday_closed %}Closed{% else %}{{settings.art_center_tuesday_opening}} to {{settings.art_center_tuesday_closing}}{% endif %}</p></li>
-              <li<p><span>Wednesday</span>{% if settings.art_center_wednesday_closed %}Closed{% else %}{{settings.art_center_wednesday_opening}} to {{settings.art_center_wednesday_closing}}{% endif %}</p></li>
+              <li><p><span>Wednesday</span>{% if settings.art_center_wednesday_closed %}Closed{% else %}{{settings.art_center_wednesday_opening}} to {{settings.art_center_wednesday_closing}}{% endif %}</p></li>
               <li><p><span>Thursday</span>{% if settings.art_center_thursday_closed %}Closed{% else %}{{settings.art_center_thursday_opening}} to {{settings.art_center_thursday_closing}}{% endif %}</p></li>
               <li><p><span>Friday</span> {% if settings.art_center_friday_closed %}Closed{% else %}{{settings.art_center_friday_opening}} to {{settings.art_center_friday_closing}}{% endif %}</p></li>
               <li><p><span>Saturday</span>{% if settings.art_center_saturday_closed %}Closed{% else %}{{settings.art_center_saturday_opening}} to {{settings.art_center_saturday_closing}}{% endif %}</p></li>
@@ -219,7 +222,7 @@
             <ul class="list-unstyled">
               <li><p><span>Monday</span>{% if settings.studio_monday_closed %}Closed{% else %}{{settings.studio_monday_opening}} to {{settings.studio_monday_closing}}{% endif %}</p></li>
               <li><p><span>Tuesday</span>{% if settings.studio_tuesday_closed %}Closed{% else %}{{settings.studio_tuesday_opening}} to {{settings.studio_tuesday_closing}}{% endif %}</p></li>
-              <li<p><span>Wednesday</span>{% if settings.studio_wednesday_closed %}Closed{% else %}{{settings.studio_wednesday_opening}} to {{settings.studio_wednesday_closing}}{% endif %}</p></li>
+              <li><p><span>Wednesday</span>{% if settings.studio_wednesday_closed %}Closed{% else %}{{settings.studio_wednesday_opening}} to {{settings.studio_wednesday_closing}}{% endif %}</p></li>
               <li><p><span>Thursday</span>{% if settings.studio_thursday_closed %}Closed{% else %}{{settings.studio_thursday_opening}} to {{settings.studio_thursday_closing}}{% endif %}</p></li>
               <li><p><span>Friday</span>{% if settings.studio_friday_closed %}Closed{% else %}{{settings.studio_friday_opening}} to {{settings.studio_friday_closing}}{% endif %}</p></li>
               <li><p><span>Saturday</span>{% if settings.studio_saturday_closed %}Closed{% else %}{{settings.studio_saturday_opening}} to {{settings.studio_saturday_closing}}{% endif %}</p></li>

@@ -1,0 +1,32 @@
+.old-ie * {
+   font-weight: normal !important;
+   font-style:  normal !important;
+}
+
+body {
+  font-family: 'Whitney SSm 3r', 'Whitney SSm A', 'Whitney SSm B', Helvetica, Arial, sans-serif;
+}
+
+.navbar .nav LI {
+	margin: 0px 10px 0px 20px !important;
+}
+
+.navbar-brand {
+  	margin-right: 25px;
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+			src='http://urbanglass.org/images/UG_logo_web.png',
+			sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+				src='http://urbanglass.org/images/UG_logo_web.png',
+				sizingMethod='scale')";
+}
+
+
+#store .navbar .nav LI {
+    margin: 0px 10px 0px 20px !important;
+}
+
+#store .navbar .navbar-brand {
+    margin-right: 25px;
+} 

@@ -1,14 +1,9 @@
-<div id="product" class="{{ product.handle }}">
-  
-  <div class="row clearfix">
-    
-    {% if product.handle == 'donation' %}
-      <script type="text/javascript">$("#support").addClass("active");</script>
-    {% endif %}
 
+<div id="product" class="{{ product.handle }}">
+  <div class="row clearfix">
 
     <!-- Begin product photos -->
-    <div class="col-md-6">
+    <div class="col-xs-6">
       
       <!-- Begin featured image -->
       <div class="image featured">
@@ -57,19 +52,19 @@
     
     
     <!-- Begin description -->
-    <div class="col-md-6">
+    <div class="col-xs-6">
 
-      <!-- need to think about a better way to do this -->
-      <ul class="list-inline">
+    <div id="product-details">
 
+      <!-- Bookmark : Consider more efficient methods -->
         {% assign productVendor = product.vendor | handle %}
         {% for collection in product.collections %}
 
           {% if collection.handle != 'frontpage' and collection.handle != 'all' and collection.handle != product.vendor | handle  %}
-            <li><a href="/collections/{{ collection.handle }} ">{{ collection.title }}</a></li>
+            <a class="gray-link" href="/collections/{{ collection.handle }} "><h6>{{ collection.title }}</h6></a>
           {% endif %}
         {% endfor %}
-      </ul>
+      <!-- End Bookmark -->
       
       <h1 class="title">{{ product.title }}</h1>
 
@@ -123,7 +118,7 @@
       <!-- Begin donation specific markup -->
 
       <label for="quantity">Amount: </label> 
-          $ <input min="1" type="number" id="quantity" name="quantity" value="1" class="tc item-quantity" />
+          $<input min="1" type="number" id="quantity" name="quantity" value="1" class="tc item-quantity" />
 
       <input type="hidden" name="id" value="413817885" />
         <div class="product-options">
@@ -155,22 +150,14 @@
 
     </div>
     <!-- End description -->
-
+    </div>
   </div>
 <hr>
 <!-- Begin announcement banner -->
 
-  {% if settings.announcement_heading != "" %}
-    <div class="announcement">
-      <div class="banner" style="text-align:center; 
-                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
-                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
-                    width:100%;">
-        <h3>{{settings.announcement_heading}}</h3>
-        <p>{{settings.announcement_subheading}}</p>
-      </div>
-    </div>
-  {% endif %}
+  {% include 'annoucement' %}
+
+
   <!-- End announcement banner -->
 
   <!-- Begin related product -->

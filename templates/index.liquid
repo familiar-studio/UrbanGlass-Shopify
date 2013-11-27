@@ -9,7 +9,7 @@
 	    <li {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
 	     	<div class="container">
 	     	<img {% if settings.slide_1_link %} onclick="window.location ='{{settings.slide_1_link}}'"{% endif %} src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_1_text }}</p>
+	     
 	      	</div>
 	    </li>
 	    {% endif %}
@@ -17,7 +17,7 @@
 	    <li {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %}>
 	      <div class="container">
 	      <img {% if settings.slide_2_link %} onclick="window.location ='{{settings.slide_2_link}}'" {% endif %} src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_2_text }}</p>
+	
 	      </div>
 	    </li>
 	    {% endif %}
@@ -25,7 +25,7 @@
 	    <li {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
 	      <div class="container">
 	      <img {% if settings.slide_3_link %} onclick="window.location ='{{settings.slide_3_link}}'" {% endif %} src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
-	      <p class="flex-caption">{{ settings.slide_3_text }}</p>
+	   
 	      </div>
 	    </li>
 	    {% endif %}
@@ -33,43 +33,43 @@
 	</div>
 	<div class="container"><div class="inner-wrapper">
 	<!-- Flexslider navigation carousel begins -->
+
+	{% if settings.slide_3 != false or settings.slide_2 != false %}
 	<div id="carousel" class="flexslider">
-	  <ul class="slides">
+	  <div class="slides row {% if settings.slide_3 == false and  settings.slide_2 == true %} twoUp {% endif %} ">
 	  	{% if settings.slide_1 %}
-	    <li {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
-	      <img src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	    </li>
+	    <div  class="col-xs-4 ">
+	    	<div class="item" {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
+	      		<img src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_1_text }}</p></div>
+	      	</div>
+	    </div>
 	    {% endif %}
 	    {% if settings.slide_2 %}
-	    <li {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %}>
-	      <img src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
-	    </li>
+	    <div class="col-xs-4">
+	    	<div class="item"  {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %} >
+	      		<img src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_2_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_2_text }}</p></div>
+	      	</div>
+	    </div>
 	    {% endif %}
 	    {% if settings.slide_3 %}
-	    <li {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
-	      <img src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
-	    </li>
+	    <div  class="col-xs-4">
+	    	<div class="item" {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
+	      		<img src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_3_text }}</p></div>
+	      	</div>
+	    </div>
 	    {% endif %}
-	  </ul>
+	  </div>
 	</div>
+	{% endif %}
 <!-- Flexslider ends here -->
 {% endif %}
 
 
 
- {% if settings.announcement_heading != "" %}
- <!-- Announcement banner begins here -->
-  	<div class="announcement">
-  		<div class="banner" style="text-align:center; 
-  									background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
-  									color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
-  									width:100%;">
-  			<h3>{{settings.announcement_heading}}</h3>
-  			<p>{{settings.announcement_subheading}}</p>
-  		</div>
-  	</div>
-<!-- Announcement banner ends here -->
-{% endif %}
+ {% include 'annoucement' %}
 
  <!-- Frontpage products begin here -->
 	<div class="products">
@@ -82,4 +82,16 @@
     
 
 
+<!--
+<script>
+	$(function() {
 
+
+		$('#carousel .item').mouseenter (function () {
+
+			$(this).append('<h3 class="image-hover">'+$(this).attr("alt")+'</h3>');
+
+		});
+
+	});
+</script>-->

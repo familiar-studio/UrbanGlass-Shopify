@@ -1,0 +1,29 @@
+{% if settings.announcement_heading != "" %}
+
+  </div>
+    </div>
+      </div>
+
+      {% if settings.announcement_link != "" %}
+      <a href="{{ settings.announcement_link }} " >
+      {% endif %}
+        <div class="announcement">
+          <div class="banner" style="text-align:center; 
+                    background-color:{% if settings.banner_color != "" %}{{settings.banner_color}}{% else %}#eb382e{% endif %}; 
+                    color:{% if settings.banner_text_color != "" %}{{settings.banner_text_color}}{% else %}#ffffff{% endif %}; 
+                    width:100%;">
+          <h3>{{settings.announcement_heading}}</h3>
+
+          {% if settings.announcement_subheading != "" %}
+            <p>{{settings.announcement_subheading}}</p>
+          {% endif %}
+      </div>
+        {% if settings.announcement_link != "" %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+     <div class="container">
+      <div class="inner-wrapper">
+  {% endif %}

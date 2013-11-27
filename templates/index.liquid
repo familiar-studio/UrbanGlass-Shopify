@@ -36,23 +36,26 @@
 	<div id="carousel" class="flexslider">
 	  <div class="slides row">
 	  	{% if settings.slide_1 %}
-	    <div {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %} class="col-md-4 ">
-	    	<div class="item">
-	      	<img src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
+	    <div  class="col-xs-4 ">
+	    	<div class="item" {% if settings.slide_1_color %}style="background-color:{{settings.slide_1_color}};"{% endif %}>
+	      		<img src={{ "slideshow_1.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_1_text }}</p></div>
 	      	</div>
 	    </div>
 	    {% endif %}
 	    {% if settings.slide_2 %}
-	    <div {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %} class="col-md-4">
-	    	<div class="item">
-	      <img src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_1_text }}" {% endif %}/>
+	    <div class="col-xs-4">
+	    	<div class="item"  {% if settings.slide_2_color %}style="background-color:{{settings.slide_2_color}};"{% endif %} >
+	      		<img src={{ "slideshow_2.jpg" | asset_url }} {% if settings.slide_1_text %} alt="{{ settings.slide_2_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_2_text }}</p></div>
 	      	</div>
 	    </div>
 	    {% endif %}
 	    {% if settings.slide_3 %}
-	    <div {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %} class="col-md-4">
-	    	<div class="item">
-	      <img src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
+	    <div  class="col-xs-4">
+	    	<div class="item" {% if settings.slide_3_color %}style="background-color:{{settings.slide_3_color}};"{% endif %}>
+	      		<img src={{ "slideshow_3.jpg" | asset_url }} {% if settings.slide_3_text %} alt="{{ settings.slide_3_text }}" {% endif %}/>
+	      		<div class="item-caption"><p>{{ settings.slide_3_text }}</p></div>
 	      	</div>
 	    </div>
 	    {% endif %}
@@ -76,4 +79,16 @@
     
 
 
+<!--
+<script>
+	$(function() {
 
+
+		$('#carousel .item').mouseenter (function () {
+
+			$(this).append('<h3 class="image-hover">'+$(this).attr("alt")+'</h3>');
+
+		});
+
+	});
+</script>-->

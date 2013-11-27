@@ -1,7 +1,7 @@
 {% capture collection_handle %}{{ product-loop | handleize }}{% endcapture %}
 {% capture url %}{% if collection_handle != "" %}/collections/{{ product-loop }}{{ product.url }}{% else %}{{ product.url }}{% endif %}{% endcapture %}
 
-<div class="product col-md-3 sort" 
+<div class="product col-xs-3 sort" 
     data-title="{{ product.title }}" 
     data-price="{{ product.price }}" 
   {% if product.price <= 10000 %}
@@ -18,7 +18,7 @@
       <h4 class="title">{{ product.title }}</h4>
       
       <h5>
-      {{product.vendor}}
+      {{product.vendor}}, 
       <span class="price">
       {% if product.available %}
         {% if product.compare_at_price_max > product.price %}

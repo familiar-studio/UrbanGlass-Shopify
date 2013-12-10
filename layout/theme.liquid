@@ -33,8 +33,18 @@
 
   <link rel="stylesheet" type="text/css" href={{ "shuffle.css" | asset_url }} />
   <link rel="stylesheet" type="text/css" href="http://www.urbanglass.org/css/flexslider.css" />
+
+
  <!-- <link rel="stylesheet" type="text/css" href={{ "flexslider.css" | asset_url }} /> -->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.urbanglass.org/images/favIcon_48x48.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.urbanglass.org/images/favIcon_48x48.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.urbanglass.org/images/favIcon_48x48.ico">
+    <link rel="apple-touch-icon-precomposed" href="http://www.urbanglass.org/images/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.urbanglass.org/images/favIcon_32x32.ico">
   
+
+
 
 
   {{ content_for_header }}
@@ -274,9 +284,9 @@
   {{ 'shuffle.js' | asset_url | script_tag }}
   {{ 'glass-shuffle.js' | asset_url | script_tag }}
 
-  {% if settings.enable_product_image_zoom %}
+  
     {{ 'jquery.zoom.js' | asset_url | script_tag }}
-  {% endif %}
+
   {{ 'jquery.tweet.js' | asset_url | script_tag }}
   {{ 'jquery.fancybox.js' | asset_url | script_tag }}
 

@@ -21,16 +21,16 @@
       
       {% if product.images.size > 1%}
       <!-- Begin thumbnails -->
-      <div class="thumbs clearfix" style="margin-left:-15px;">
+      <div class="thumbs clearfix row" style="margin-left:-15px;">
         {% for image in product.images %}
         {% if settings.enable_product_image_zoom %}
-        <div class="image span2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
+        <div class="image col-md-2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
           <a href="{{ image | product_img_url: 'original' }}" class="cloud-zoom-gallery" rel="useZoom: 'placeholder', smallImage: '{{ image | product_img_url: 'original' }}', tint: '#ffffff'">
             <img src="{{ image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
           </a>
         </div>
         {% else %}
-        <div class="image span2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
+        <div class="image col-md-2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
           <a href="{{ image | product_img_url: 'original' }}" data-original-image="{{ image | product_img_url: 'original' }}">
             <img src="{{ image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
           </a>
